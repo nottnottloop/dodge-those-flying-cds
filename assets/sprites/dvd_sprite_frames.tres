@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://wppxn0l13tqu"]
+
+[ext_resource type="Texture2D" uid="uid://p1rpua22d8me" path="res://assets/sprites/programmer_art/DVD.png" id="1_6qcto"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6qcto")
+}],
+"loop": true,
+"name": &"Neutral",
+"speed": 5.0
+}]

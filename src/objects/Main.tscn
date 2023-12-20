@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqvvu4yt0v3ly"]
+
+[ext_resource type="PackedScene" uid="uid://cmhq57472hx8u" path="res://src/objects/Player.tscn" id="1_8lwlj"]
+[ext_resource type="Script" path="res://src/scripts/Main.gd" id="1_y8dhx"]
+[ext_resource type="PackedScene" uid="uid://djpcfp5nwfa3m" path="res://src/objects/DVD.tscn" id="2_nlmyf"]
+
+[sub_resource type="Curve2D" id="Curve2D_4joly"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1920, 0, 0, 0, 0, 0, 1920, 1080, 0, 0, 0, 0, 0, 1080, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Main" type="Node"]
+script = ExtResource("1_y8dhx")
+dvd_scene = ExtResource("2_nlmyf")
+
+[node name="Player" parent="." instance=ExtResource("1_8lwlj")]
+position = Vector2(920, 540)
+speed = 500
+
+[node name="DVDTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(920, 540)
+
+[node name="DVDPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_4joly")
+
+[node name="DVDSpawnLocation" type="PathFollow2D" parent="DVDPath"]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="BG" type="ColorRect" parent="."]
+z_index = -50
+offset_right = 1948.0
+offset_bottom = 1129.0
+color = Color(0.929412, 0.929412, 0.929412, 1)
+
+[connection signal="timeout" from="DVDTimer" to="." method="_on_dvd_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
