@@ -4,16 +4,18 @@
 [ext_resource type="Script" path="res://src/scripts/Player.gd" id="1_qpdjg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3ds7"]
-radius = 64.0
-height = 304.0
+radius = 9.0
+height = 44.0
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_qpdjg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_pcnwg")
-animation = &"Neutral"
+animation = &"Right"
+autoplay = "Down"
+frame_progress = 0.508227
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, 12)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_q3ds7")
