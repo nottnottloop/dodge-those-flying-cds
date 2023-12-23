@@ -22,7 +22,7 @@ func _process(delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 
-	$AnimatedSprite2D.animation = "Neutral"
+	#$AnimatedSprite2D.animation = "Neutral"
 	if velocity.x > 0:
 		if velocity.y < 0:
 			$AnimatedSprite2D.animation = "UpRight"
